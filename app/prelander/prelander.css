@@ -1,0 +1,679 @@
+/* CBC News-inspired prelander styles — override global dark theme */
+.prelander-root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  background: #fff !important;
+  color: #1a1a1a !important;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.prelander-root *,
+.prelander-root *::before,
+.prelander-root *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.prelander-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Top bar ─── */
+.cbc-topbar {
+  background: #e02020;
+  height: 4px;
+}
+
+/* ─── Header ─── */
+.cbc-header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cbc-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.cbc-header__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cbc-header__menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.cbc-header__menu-btn svg {
+  fill: #1a1a1a;
+}
+
+.cbc-logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.cbc-logo__gem {
+  width: 28px;
+  height: 28px;
+}
+
+.cbc-logo__text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
+}
+
+.cbc-logo__news {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666;
+  margin-left: 4px;
+}
+
+.cbc-header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cbc-header__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.cbc-header__btn svg {
+  fill: #1a1a1a;
+}
+
+.cbc-header__signin {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+/* ─── Navigation ─── */
+.cbc-nav {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cbc-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cbc-nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 0;
+}
+
+.cbc-nav__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  padding: 12px 16px;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.cbc-nav__link:hover {
+  border-bottom-color: #e02020;
+}
+
+.cbc-nav__link--active {
+  border-bottom-color: #e02020;
+  color: #e02020;
+}
+
+/* ─── Article ─── */
+.cbc-article {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.cbc-article__category {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #e02020;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.cbc-article__headline {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.cbc-article__notice {
+  display: block;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #e02020;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .cbc-article__headline {
+    font-size: 24px;
+  }
+  .cbc-article__notice {
+    font-size: 13px;
+  }
+}
+
+/* ─── Byline ─── */
+.cbc-byline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+}
+
+.cbc-byline__left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cbc-byline__source {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.cbc-byline__time {
+  font-size: 13px;
+  color: #666;
+}
+
+.cbc-byline__share {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.cbc-byline__share:hover {
+  background: #f0f0f0;
+}
+
+.cbc-byline__share svg {
+  fill: #666;
+}
+
+/* ─── Images ─── */
+.cbc-image {
+  margin: 24px 0;
+  position: relative;
+}
+
+.cbc-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+.cbc-image__caption {
+  font-size: 13px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.cbc-image__credit {
+  font-size: 11px;
+  color: #999;
+  position: absolute;
+  bottom: 32px;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* ─── Text ─── */
+.cbc-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.cbc-text a {
+  color: #e02020;
+  text-decoration: underline;
+}
+
+.cbc-text a:hover {
+  color: #b01818;
+}
+
+@media (max-width: 600px) {
+  .cbc-text {
+    font-size: 16px;
+  }
+}
+
+/* ─── Registration section ─── */
+.cbc-reg {
+  background: #f5f5f5;
+  border: 2px solid #e02020;
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin: 32px 0;
+}
+
+.cbc-reg__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.cbc-reg__title a {
+  color: #e02020;
+  text-decoration: underline;
+}
+
+.cbc-reg__list {
+  list-style: none;
+  counter-reset: steps;
+  margin-bottom: 20px;
+}
+
+.cbc-reg__item {
+  counter-increment: steps;
+  padding: 12px 0 12px 48px;
+  position: relative;
+  font-size: 16px;
+  line-height: 1.5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cbc-reg__item:last-child {
+  border-bottom: none;
+}
+
+.cbc-reg__item::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  background: #e02020;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cbc-reg__item img {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+.cbc-reg__note {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.cbc-reg__cta {
+  display: block;
+  text-align: center;
+  padding: 16px 32px;
+  background: #e02020;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+
+.cbc-reg__cta:hover {
+  background: #c01818;
+}
+
+/* ─── Comments section ─── */
+.cbc-comments {
+  margin-top: 40px;
+  border-top: 2px solid #e0e0e0;
+  padding-top: 24px;
+}
+
+.cbc-comments__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.cbc-comments__input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.cbc-comments__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #ddd;
+}
+
+.cbc-comments__input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  pointer-events: none;
+}
+
+.cbc-comments__sort {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.cbc-comments__sort span {
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+/* Single comment */
+.fb-comment {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fb-comment__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.fb-comment__body {
+  flex: 1;
+}
+
+.fb-comment__bubble {
+  background: #f0f2f5;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+}
+
+.fb-comment__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.fb-comment__text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+.fb-comment__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #666;
+  padding-left: 4px;
+}
+
+.fb-comment__action {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fb-comment__action:hover {
+  text-decoration: underline;
+}
+
+.fb-comment__likes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.fb-comment__likes-icon {
+  width: 16px;
+  height: 16px;
+  background: #1877f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fb-comment__likes-icon svg {
+  width: 10px;
+  height: 10px;
+  fill: #fff;
+}
+
+/* Reply comment */
+.fb-reply {
+  margin-left: 48px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+/* Comment screenshot image */
+.fb-comment__img {
+  max-width: 280px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* ─── Related articles ─── */
+.cbc-related {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.cbc-related__header {
+  border-top: 3px solid #e02020;
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+
+.cbc-related__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.cbc-related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .cbc-related__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cbc-related__card {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+.cbc-related__card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.cbc-related__card-title:hover {
+  color: #e02020;
+}
+
+.cbc-related__card-meta {
+  font-size: 12px;
+  color: #999;
+}
+
+/* ─── Footer ─── */
+.cbc-footer {
+  background: #1a1a1a;
+  color: #ccc;
+  padding: 40px 20px;
+}
+
+.cbc-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cbc-footer__logo {
+  margin-bottom: 20px;
+}
+
+.cbc-footer__logo svg {
+  fill: #fff;
+}
+
+.cbc-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cbc-footer__link {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.cbc-footer__link:hover {
+  color: #fff;
+}
+
+.cbc-footer__copy {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+}
+
+/* ─── Placeholder images ─── */
+.cbc-placeholder-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Avatar colors for variety */
+.avatar-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.avatar-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.avatar-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.avatar-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.avatar-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.avatar-6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+.avatar-7 { background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%); }
+.avatar-8 { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); }
+
+.avatar-initial {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
