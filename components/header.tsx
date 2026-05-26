@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { MapleLeaf } from "./maple-leaf";
 
@@ -12,10 +11,12 @@ interface HeaderProps {
 export function Header({ onOpenModal }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
+    setHeaderVisible(true);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -27,15 +28,16 @@ export function Header({ onOpenModal }: HeaderProps) {
   ];
 
   return (
-    <motion.header
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-bg/80 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
+      style={{
+        transform: headerVisible ? "translateY(0)" : "translateY(-80px)",
+        transition: "transform 0.5s ease, background-color 0.5s ease, border-color 0.5s ease",
+      }}
     >
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
         {/* Logo */}
@@ -82,35 +84,34 @@ export function Header({ onOpenModal }: HeaderProps) {
         </div>
       </div>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-bg-elevated border-t border-border"
+      {/* Mobile menu */}
+      <div
+        className="md:hidden bg-bg-elevated border-t border-border overflow-hidden transition-all duration-300"
+        style={{
+          maxHeight: menuOpen ? "300px" : "0",
+          opacity: menuOpen ? 1 : 0,
+          borderTopWidth: menuOpen ? "1px" : "0",
+        }}
+      >
+        <div className="px-5 py-4 space-y-3">
+          {links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-sm text-fg-muted hover:text-fg py-1"
+            >
+              {l.label}
+            </a>
+          ))}
+          <button
+            onClick={() => { onOpenModal(); setMenuOpen(false); }}
+            className="w-full mt-2 text-sm font-medium px-5 py-2.5 rounded-full bg-maple text-white"
           >
-            <div className="px-5 py-4 space-y-3">
-              {links.map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block text-sm text-fg-muted hover:text-fg py-1"
-                >
-                  {l.label}
-                </a>
-              ))}
-              <button
-                onClick={() => { onOpenModal(); setMenuOpen(false); }}
-                className="w-full mt-2 text-sm font-medium px-5 py-2.5 rounded-full bg-maple text-white"
-              >
-                Open Account
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+            Open Account
+          </button>
+        </div>
+      </div>
+    </header>
   );
 }

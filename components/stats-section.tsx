@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { FadeIn } from "./animate";
 
 const metrics = [
   { number: "CA$1.8B", label: "Assets managed for Canadian investors" },
@@ -15,12 +15,9 @@ export function StatsSection() {
       <div className="max-w-6xl mx-auto px-5">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((m, i) => (
-            <motion.div
+            <FadeIn
               key={m.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 0.1}
               className="relative p-6 rounded-2xl border border-border/60 bg-bg-card/30 text-center"
             >
               <p className="text-3xl md:text-4xl font-bold text-gradient mb-2">
@@ -29,11 +26,10 @@ export function StatsSection() {
               <p className="text-xs text-fg-muted leading-relaxed">
                 {m.label}
               </p>
-              {/* Subtle maple accent on first card */}
               {i === 0 && (
                 <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-maple/40" />
               )}
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

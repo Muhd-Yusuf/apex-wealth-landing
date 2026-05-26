@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MapleLeaf } from "./maple-leaf";
+import { FadeIn } from "./animate";
 
 const advisors = [
   {
@@ -36,12 +36,7 @@ export function BrokerSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg-elevated/50 to-bg" />
 
       <div className="relative max-w-6xl mx-auto px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
+        <FadeIn className="text-center mb-14">
           <div className="flex items-center justify-center gap-2 mb-3">
             <MapleLeaf className="h-3.5 w-3.5 text-maple" />
             <span className="text-[11px] uppercase tracking-[0.2em] text-maple font-medium">
@@ -57,16 +52,13 @@ export function BrokerSection() {
             Every advisor holds Canadian certifications and is registered with
             IIROC. No generalists — specialists matched to your goals.
           </p>
-        </motion.div>
+        </FadeIn>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {advisors.map((a, i) => (
-            <motion.div
+            <FadeIn
               key={a.name}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 0.1}
               className="p-5 rounded-2xl border border-border/60 bg-bg-card/30 hover:border-border-hover transition-all text-center"
             >
               <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-maple/20 to-blue/15 flex items-center justify-center text-sm font-bold text-fg mb-4">
@@ -75,7 +67,7 @@ export function BrokerSection() {
               <p className="text-sm font-medium text-fg mb-1">{a.name}</p>
               <p className="text-[11px] text-fg-muted mb-2">{a.specialty}</p>
               <p className="text-[10px] text-fg-subtle">{a.location}</p>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

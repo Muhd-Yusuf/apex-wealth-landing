@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { MapleLeaf } from "./maple-leaf";
+import { FadeIn } from "./animate";
 
 interface Props {
   onOpenModal: () => void;
@@ -12,10 +12,7 @@ export function CTASection({ onOpenModal }: Props) {
   return (
     <section className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <FadeIn
           className="relative overflow-hidden rounded-3xl border border-maple/15 bg-gradient-to-br from-maple/[0.06] via-bg-card/60 to-blue/[0.04] px-8 py-16 md:px-16 md:py-20 text-center"
         >
           {/* Ambient */}
@@ -47,7 +44,7 @@ export function CTASection({ onOpenModal }: Props) {
               results. Northvale Capital is a member of IIROC and CIPF.
             </p>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );

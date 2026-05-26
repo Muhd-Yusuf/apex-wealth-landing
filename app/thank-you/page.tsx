@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, TrendingUp, Shield, Clock } from "lucide-react";
 import Link from "next/link";
 import { MapleLeaf } from "@/components/maple-leaf";
+import { FadeIn, ScaleIn } from "@/components/animate";
 
 export default function ThankYouPage() {
   return (
@@ -23,41 +23,21 @@ export default function ThankYouPage() {
 
       <main className="flex-1 flex items-center justify-center px-5 py-20">
         <div className="max-w-lg w-full text-center">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-mint-dim mb-8"
-          >
+          <ScaleIn className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-mint-dim mb-8">
             <CheckCircle2 className="h-10 w-10 text-mint" />
-          </motion.div>
+          </ScaleIn>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl md:text-4xl font-bold text-fg mb-4"
-          >
+          <FadeIn delay={0.2} as="h1" className="text-3xl md:text-4xl font-bold text-fg mb-4">
             Welcome aboard.
-          </motion.h1>
+          </FadeIn>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-sm text-fg-muted leading-relaxed mb-10 max-w-sm mx-auto"
-          >
+          <FadeIn delay={0.3} as="p" className="text-sm text-fg-muted leading-relaxed mb-10 max-w-sm mx-auto">
             Since you already have capital ready to allocate, we&apos;re
             fast-tracking your onboarding. A senior Canadian advisor will contact
             you within the next few hours.
-          </motion.p>
+          </FadeIn>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
-            className="rounded-xl border border-border bg-bg-card/50 p-6 mb-8 text-left"
-          >
+          <FadeIn delay={0.45} className="rounded-xl border border-border bg-bg-card/50 p-6 mb-8 text-left">
             <h3 className="text-xs uppercase tracking-[0.15em] text-mint font-medium mb-5">
               What happens next
             </h3>
@@ -90,9 +70,9 @@ export default function ThankYouPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </FadeIn>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
+          <FadeIn delay={0.6}>
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-sm text-fg-muted hover:text-fg transition-colors"
@@ -100,7 +80,7 @@ export default function ThankYouPage() {
               <ArrowRight className="h-3.5 w-3.5 rotate-180" />
               Back to homepage
             </Link>
-          </motion.div>
+          </FadeIn>
         </div>
       </main>
     </div>

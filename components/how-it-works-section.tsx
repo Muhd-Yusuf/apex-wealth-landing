@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowRight, UserPlus, Handshake, FileText, TrendingUp } from "lucide-react";
+import { FadeIn } from "./animate";
 
 interface Props {
   onOpenModal: () => void;
@@ -38,12 +38,7 @@ export function HowItWorksSection({ onOpenModal }: Props) {
   return (
     <section id="process" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <FadeIn className="text-center mb-16">
           <span className="text-[11px] uppercase tracking-[0.2em] text-maple font-medium">
             Getting Started
           </span>
@@ -52,17 +47,13 @@ export function HowItWorksSection({ onOpenModal }: Props) {
             <br />
             <span className="text-fg-muted">in four steps.</span>
           </h2>
-        </motion.div>
+        </FadeIn>
 
-        {/* Horizontal cards with icon + number */}
         <div className="grid sm:grid-cols-2 gap-4">
           {steps.map((step, i) => (
-            <motion.div
+            <FadeIn
               key={step.num}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 0.1}
               className="flex gap-5 p-6 rounded-2xl border border-border/60 bg-bg-card/30"
             >
               <div className="shrink-0">
@@ -81,16 +72,11 @@ export function HowItWorksSection({ onOpenModal }: Props) {
                   {step.desc}
                 </p>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
+        <FadeIn delay={0.15} className="text-center mt-12">
           <button
             onClick={onOpenModal}
             className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-maple text-white text-sm font-semibold hover:shadow-lg hover:shadow-maple/20 transition-all hover:-translate-y-0.5"
@@ -98,7 +84,7 @@ export function HowItWorksSection({ onOpenModal }: Props) {
             Get Started Today
             <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );
