@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { FadeIn } from "./animate";
 
 const logos = ["Globe & Mail", "BNN Bloomberg", "Financial Post", "CBC Business", "MoneySense", "Wealthsimple Magazine"];
 
@@ -13,16 +13,15 @@ export function NewsLogos() {
             Recognized by
           </span>
           {logos.map((name, i) => (
-            <motion.span
+            <FadeIn
               key={name}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
+              delay={i * 0.05}
+              direction="none"
+              as="span"
               className="text-sm font-medium text-fg-subtle/40 hover:text-fg-subtle transition-colors cursor-default"
             >
               {name}
-            </motion.span>
+            </FadeIn>
           ))}
         </div>
       </div>
