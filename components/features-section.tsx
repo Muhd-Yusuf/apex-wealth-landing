@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Shield,
   BarChart3,
@@ -10,6 +9,7 @@ import {
   LineChart,
 } from "lucide-react";
 import { MapleLeaf } from "./maple-leaf";
+import { FadeIn } from "./animate";
 
 const features = [
   {
@@ -60,12 +60,7 @@ export function FeaturesSection() {
   return (
     <section id="services" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
-        >
+        <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div className="max-w-lg">
             <div className="flex items-center gap-2 mb-3">
               <MapleLeaf className="h-3.5 w-3.5 text-maple" />
@@ -83,17 +78,13 @@ export function FeaturesSection() {
             Tax-optimized. Regulation-compliant. Designed from the ground up for
             the Canadian financial landscape.
           </p>
-        </motion.div>
+        </FadeIn>
 
-        {/* 2x3 grid with alternating sizes */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f, i) => (
-            <motion.div
+            <FadeIn
               key={f.title}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
+              delay={i * 0.06}
               className="group p-6 rounded-2xl border border-border/60 bg-bg-card/30 hover:bg-bg-card/60 hover:border-border-hover transition-all duration-400"
             >
               <div className={`w-10 h-10 rounded-xl ${f.bg} ${f.accent} flex items-center justify-center mb-4`}>
@@ -105,7 +96,7 @@ export function FeaturesSection() {
               <p className="text-xs text-fg-muted leading-relaxed">
                 {f.desc}
               </p>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

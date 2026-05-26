@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { MapleLeaf } from "./maple-leaf";
+import { FadeIn } from "./animate";
 
 const reviews = [
   {
@@ -35,12 +35,7 @@ export function TestimonialsSection() {
   return (
     <section id="results" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
+        <FadeIn className="text-center mb-14">
           <div className="flex items-center justify-center gap-2 mb-3">
             <MapleLeaf className="h-3.5 w-3.5 text-maple" />
             <span className="text-[11px] uppercase tracking-[0.2em] text-maple font-medium">
@@ -52,16 +47,13 @@ export function TestimonialsSection() {
             <br />
             <span className="text-fg-muted">from coast to coast.</span>
           </h2>
-        </motion.div>
+        </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-5">
           {reviews.map((r, i) => (
-            <motion.div
+            <FadeIn
               key={r.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 0.1}
               className="flex flex-col p-6 rounded-2xl border border-border/60 bg-bg-card/30 hover:border-border-hover transition-all"
             >
               <div className="flex gap-0.5 mb-4">
@@ -89,7 +81,7 @@ export function TestimonialsSection() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

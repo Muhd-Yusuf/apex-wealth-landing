@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
 import { MapleLeaf } from "./maple-leaf";
+import { FadeIn } from "./animate";
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -18,44 +18,26 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
       <div className="relative max-w-6xl mx-auto px-5">
         <div className="max-w-3xl">
           {/* Canadian badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <FadeIn
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-maple/25 bg-maple/8 text-[11px] text-maple uppercase tracking-widest font-medium mb-8"
           >
             <MapleLeaf className="h-3 w-3" />
             Canadian-Regulated Wealth Management
-          </motion.div>
+          </FadeIn>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold leading-[1.08] tracking-tight mb-6"
-          >
+          <FadeIn delay={0.1} as="h1" className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold leading-[1.08] tracking-tight mb-6">
             Grow your wealth with
             <br />
             <span className="text-gradient">Canada&apos;s sharpest minds.</span>
-          </motion.h1>
+          </FadeIn>
 
-          <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg text-fg-muted leading-relaxed mb-10 max-w-xl"
-          >
+          <FadeIn delay={0.2} as="p" className="text-base md:text-lg text-fg-muted leading-relaxed mb-10 max-w-xl">
             From TSX blue-chips to global opportunities — our IIROC-registered
             advisors build portfolios that protect and grow your capital.
             CIPF-insured accounts. No hidden fees.
-          </motion.p>
+          </FadeIn>
 
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3 mb-14"
-          >
+          <FadeIn delay={0.3} className="flex flex-col sm:flex-row gap-3 mb-14">
             <button
               onClick={onOpenModal}
               className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-maple text-white text-sm font-semibold hover:shadow-lg hover:shadow-maple/20 transition-all hover:-translate-y-0.5"
@@ -69,15 +51,10 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
             >
               See How It Works
             </a>
-          </motion.div>
+          </FadeIn>
 
           {/* Trust badges — horizontal cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-3"
-          >
+          <FadeIn delay={0.5} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               { icon: Shield, label: "CIPF Protected", sub: "Up to $1M coverage" },
               { icon: Award, label: "IIROC Registered", sub: "Fully compliant advisors" },
@@ -96,7 +73,7 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>
